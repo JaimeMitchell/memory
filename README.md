@@ -4,8 +4,6 @@
 
 Here is the link to my memory game: https://jaimemitchell.github.io/memory/
 
-### WireFrame
-
 Since I am following a tutorial and sources on the web. I want to make sure not to totally rob myself of thinking through the problem as if I didn't have any resources and had to invent from scratch. Here are the functions I think I'll need before following tutorials:
 
 1. Functions I think I'll need in no particular order. Just brainstorming:
@@ -31,3 +29,5 @@ Since I am following a tutorial and sources on the web. I want to make sure not 
    3. Make a PLAY AGAIN BUTTON to reset, so that may be another function within, since this function would need to produce the button, but the 
       reset wouldn't happen until the button was pushed, so that reset random function would be in the EventListener('click',reset)
 
+### WireFrame
+![alt text](https://github.com/JaimeMitchell/memory/blob/1bf8b6aa368c58c737c94458298bea4a25f5e392/images/brainstorming.jpg "My WireLess Frame")
