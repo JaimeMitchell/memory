@@ -1,5 +1,5 @@
 # memoryGame
- https://jaimemitchell.github.io/memory/
+
 ## Description
 
 A memory game
