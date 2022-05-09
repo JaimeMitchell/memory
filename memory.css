@@ -1,6 +1,23 @@
+/* The game boards properties */
+body {
+    display: flex;
+    flex-wrap:wrap;
+    flex-direction: column;
+    align-content: center;
+    background-color: black;
+}
+/* board size */
 .grid {
     display: flex;
     flex-wrap: wrap;
-    height: 300px;
+    height: 400px;
     width: 400px;
+}
+/* Score */
+h3 {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+    color:rgb(14, 226, 180)
 }
