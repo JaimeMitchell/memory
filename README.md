@@ -1,6 +1,7 @@
-#memoryGame
+# memoryGame
 
-##Description
+## Description
+
 A memory game
 
-###WireFrame
+### WireFrame
