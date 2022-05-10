@@ -97,11 +97,11 @@ document.addEventListener('DOMContentLoaded', () => {
             card.setAttribute('data-id', i)
             //append the card to the grid. Putting after creating card did nothing
             grid.appendChild(card)
+            //turning card event
             card.addEventListener('click', flipCard)
         }
     }
     function flipCard() {
-        console.log(this)
         //check console log and take .this out to see what happens.
         //set cardID to a data ID of #0-27
         let cardId = this.getAttribute('data-id')
@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
         cardsChosen.push(cardArray[cardId].img)
         cardsChosenId.push(cardId)
         this.setAttribute('src', cardArray[cardId].img)
-        if (cardsChosen.length === 2) {
+        if (cardsChosen.length === 2 && cardsChosenId[0] !== cardsChosenId[1]) {
             setTimeout(checkForMatch, 500)
             console.log(this)
         }
@@ -120,7 +120,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const optionOneId = cardsChosenId[0]
         const optionTwoId = cardsChosenId[1]
         if (cardsChosen[0] === cardsChosen[1]) {
-
             cards[optionOneId].setAttribute('src', 'images/Black200px.jpg')
             cards[optionTwoId].setAttribute('src', 'images/Black200px.jpg')
             cardsWon.push(cardsChosen)
