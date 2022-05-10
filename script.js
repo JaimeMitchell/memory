@@ -124,9 +124,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const grid = document.querySelector('.grid')
     const resultDisplay = document.querySelector('#result')
     let cardsChosen = []
-    let cardsChosenID = []
+    let cardsChosenId = []
     let cardsWon = []
-    //create the game board. 1. for-loop for each card. 
+    //create the game board. 1 . for-loop for each card. 
     // 2.create the img element for each card, giving it name 'card'.
     // 3. set attribute to link it to the blank, set both it's name/local and an data-id name 1-end of array.
     // 4. add event listener have been clicked on and invoke a flip card function. 
@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
             var card = document.createElement('img')
             card.setAttribute('src', 'images/cardGreen.jpg')
             card.setAttribute('data-id', i)
-            // card.addEventListener('click,'flipCard)
+            card.addEventListener('click',flipCard)
             grid.appendChild(card)
         }
     }
@@ -152,8 +152,8 @@ function checkForMatch(){
         cards[optionTwoId].setAttribute('src', 'images/black.jpg')
         cardsWon.push(cardsChosen)
     } else{
-        cards[optionOneId].setAttribute('src', images/cardBlue.jpg)
-        cards[optionTwoId].setAttribute('src', images/cardBlue.jpg)
+        cards[optionOneId].setAttribute('src', images/cardGreen.jpg)
+        cards[optionTwoId].setAttribute('src', images/cardGreen.jpg)
         alert('nope')
     }
     cardsChosen = []
@@ -168,10 +168,9 @@ function checkForMatch(){
         //check console log and take .this out to see what happens.
         let cardId = this.getAttribute('data-id')
         cardsChosen.push(cardArray[cardId].img)
-        cardsChosenId.push(carId)
+        cardsChosenId.push(cardId)
         this.setAttribute('src', cardArray[cardId].img)
         if (cardsChosen.length === 2) { setTimeout(checkForMatch, 500) }
     }
     createBoard()
-
 })
