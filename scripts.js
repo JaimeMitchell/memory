@@ -1,114 +1,85 @@
 //setting up the DOM? Not sure why they do it like this??
-// document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
     //card options array with each card an object
     const cardArray = [
-        
-        {
-            name: 'beeFlying',
-            img: 'images/beeFlying.jpg'
-        },
-        {
-            name: 'beeFlying',
-            img: 'images/beeFlying.jpg'
-        },
-
         {
             name: 'beePassion',
-            img: 'images/beePassion.jpg'
+            img: 'images/200px-4.jpg'
         },
         {
             name: 'beePassion',
-            img: 'images/beePassion.jpg'
-        },
-
-        {
-            name: 'bwDrop',
-            img: 'images/bwDrop.jpg'
+            img: 'images/200px-4.jpg'
         },
         {
-            name: 'bwDrop',
-            img: 'images/bwDrop.jpg'
-        },
-
-        {
-            name: 'flower1',
-            img: 'images/flower1.jpg'
+            name: 'beeFlyingTongue',
+            img: 'images/200px-5.jpg'
         },
         {
-            name: 'flower1',
-            img: 'images/flower1.jpg'
+            name: 'beeFlyingTongue',
+            img: 'images/200px-5.jpg'
         },
         {
-            name: 'frit2',
-            img: 'images/frit2.jpg'
+            name: 'hopper',
+            img: 'images/200px-3.jpg'
         },
         {
-            name: 'frit2',
-            img: 'images/frit2.jpg'
-        },
-        {
-            name: 'hopper2',
-            img: 'images/hopper2.jpg'
-        },
-        {
-            name: 'hopper2',
-            img: 'images/hopper2.jpg'
-        },
-        {
-            name: 'inverseFlower',
-            img: 'images/inverseFlower.jpg'
-        },
-        {
-            name: 'inverseFlower',
-            img: 'images/inverseFlower.jpg'
-        },
-        {
-            name: 'paradiseDew',
-            img: 'images/paradiseDew.jpg'
-        },
-        {
-            name: 'paradiseDew',
-            img: 'images/paradiseDew.jpg'
+            name: 'hopper',
+            img: 'images/200px-3.jpg'
         },
         {
             name: 'spider',
-            img: 'images/spider.jpg'
+            img: 'images/200px-6.jpg'
         },
         {
             name: 'spider',
-            img: 'images/spider.jpg'
+            img: 'images/200px-6.jpg'
         },
-       
-        // {
-        //     name: 'coral',
-        //     img: 'images/coral.jpg'
-        // },
-        // {
-        //     name: 'coral',
-        //     img: 'images/coral.jpg'
-        // },
-        // {
-        //     name: 'mothCutie',
-        //     img: 'images/mothCutie.jpg'
-        // },
-        // {
-        //     name: 'mothCutie',
-        //     img: 'images/mothCutie.jpg'
-        // },
-        // {
-        //     name: 'wing',
-        //     img: 'images/wing.jpg'
-        // },
-        // {
-        //     name: 'wing',
-        //     img: 'images/wing.jpg'
-        // }
+        {
+            name: 'hopperDark',
+            img: 'images/200px-2.jpg'
+        },
+        {
+            name: 'hopperDark',
+            img: 'images/200px-2.jpg'
+        },
+        {
+            name: 'Cutie',
+            img: 'images/200px-1.jpg'
+        },
+        {
+            name: 'Cutie',
+            img: 'images/200px-1.jpg'
+        },
+        {
+            name: 'CutieCloseUp',
+            img: 'images/200px-9.jpg'
+        },
+        {
+            name: 'CutieCloseUp',
+            img: 'images/200px-9.jpg'
+        },
+        {
+            name: 'FritButterChillin',
+            img: 'images/200px-8.jpg'
+        },
+        {
+            name: 'FritButterChillin',
+            img: 'images/200px-8.jpg'
+        },
+        {
+            name: 'FritButterfly',
+            img: 'images/200px-7.jpg'
+        },
+        {
+            name: 'FritButterfly',
+            img: 'images/200px-7.jpg'
+        }
     ]
-    cardArray.sort(() => 0.5 - Math.random())
-    // select grid
+
     const grid = document.querySelector('.grid')
     const resultDisplay = document.querySelector('#result')
-
+    let cardsChosen = []
+    let cardsChosenId = []
     let cardsWon = []
     //create the game board. 1 . for-loop for each card. 
     // 2.create the img element for each card, giving it name 'card'.
@@ -118,25 +89,24 @@
     function createBoard() {
         for (let i = 0; i < cardArray.length; i++) {
             var card = document.createElement('img')
-            card.setAttribute('src', 'images/cardGreen.jpg')
+            card.setAttribute('src', 'images/greenCard.jpg')
             card.setAttribute('data-id', i)
             grid.appendChild(card)
             card.addEventListener('click', flipCard)
-           
-
         }
     }
-    let cardsChosen = []
-    let cardsChosenId = []
-    function flipCard() {console.log(this)
+    function flipCard() {
+        console.log(this)
         //check console log and take .this out to see what happens.
         let cardId = this.getAttribute('data-id')
         console.log(cardId)
         cardsChosen.push(cardArray[cardId].img)
         cardsChosenId.push(cardId)
         this.setAttribute('src', cardArray[cardId].img)
-        if (cardsChosen.length === 2) {setTimeout(checkForMatch, 500)
-        console.log(this) }
+        if (cardsChosen.length === 2) {
+            setTimeout(checkForMatch, 500)
+            console.log(this)
+        }
     }
     //check for matches
     function checkForMatch() {
@@ -144,14 +114,14 @@
         const optionOneId = cardsChosenId[0]
         const optionTwoId = cardsChosenId[1]
         if (cardsChosen[0] === cardsChosen[1]) {
-           
-            cards[optionOneId].setAttribute('src', 'images/black.jpg')
-            cards[optionTwoId].setAttribute('src', 'images/black.jpg')
+
+            cards[optionOneId].setAttribute('src', 'images/Black200px.jpg')
+            cards[optionTwoId].setAttribute('src', 'images/Black200px.jpg')
             cardsWon.push(cardsChosen)
         } else {
-            cards[optionOneId].setAttribute('src', "images/cardGreen.jpg")
-            cards[optionTwoId].setAttribute('src', "images/cardGreen.jpg")
-           
+            cards[optionOneId].setAttribute('src', 'images/greenCard200px.jpg')
+            cards[optionTwoId].setAttribute('src', 'images/greenCard200px.jpg')
+
         }
         cardsChosen = []
         cardsChosenId = []
@@ -162,4 +132,5 @@
     }
 
     createBoard()
-// })
+    cardArray.sort(() => 0.5 - Math.random())
+})

@@ -5,6 +5,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
+    justify-content: center;
     align-content: center;
     background-color: black;
 }
@@ -15,10 +16,17 @@ body {
     flex-wrap: wrap;
     flex-direction: column;
     align-content: center;
-    height: 400px;
-    width: 400px;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    height: 600px;
+    width: 800px;
 }
-
+img {
+    max-width: 200px;
+    max-height: 200px;
+    
+}
 /* Score */
 h3 {
     display: flex;
@@ -27,3 +35,8 @@ h3 {
     align-content: center;
     color: rgb(14, 226, 180)
 }
+.result{display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+    color: rgb(14, 226, 180)}
