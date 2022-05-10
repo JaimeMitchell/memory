@@ -44,19 +44,19 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             name: 'Cutie',
-            img: 'images/200px-1.jpg'
+            img: 'images/Cutie200px.jpg'
         },
         {
             name: 'Cutie',
-            img: 'images/200px-1.jpg'
+            img: 'images/Cutie200px.jpg'
         },
         {
             name: 'CutieCloseUp',
-            img: 'images/200px-9.jpg'
+            img: 'images/CutieCloseUp200px.jpg'
         },
         {
             name: 'CutieCloseUp',
-            img: 'images/200px-9.jpg'
+            img: 'images/CutieCloseUp200px.jpg'
         },
         {
             name: 'FritButterChillin',
@@ -98,6 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function flipCard() {
         console.log(this)
         //check console log and take .this out to see what happens.
+        //
         let cardId = this.getAttribute('data-id')
         console.log(cardId)
         cardsChosen.push(cardArray[cardId].img)
