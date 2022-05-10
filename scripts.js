@@ -87,10 +87,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // 4. add event listener have been clicked on and invoke a flip card function. 
     //flip the card
     function createBoard() {
+        //Loop through card array
         for (let i = 0; i < cardArray.length; i++) {
+            //Creat an image element named card of EACH object in array.
             var card = document.createElement('img')
+            //Set EACH card to it's src attribute (Images Relative Path) AND to the green card (virtual back side)
             card.setAttribute('src', 'images/greenCard.jpg')
+            // Set EACH card to a data idea #0-27 using the i iterator
             card.setAttribute('data-id', i)
+            //append the card to the grid. Putting after creating card did nothing
             grid.appendChild(card)
             card.addEventListener('click', flipCard)
         }
@@ -98,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function flipCard() {
         console.log(this)
         //check console log and take .this out to see what happens.
-        //
+        //set cardID to a data ID of #0-27
         let cardId = this.getAttribute('data-id')
         console.log(cardId)
         cardsChosen.push(cardArray[cardId].img)
