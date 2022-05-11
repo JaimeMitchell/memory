@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
             img: 'images/200px-7.jpg'
         }
     ]
-
+    cardArray.sort(() => 0.5 - Math.random())
     const grid = document.querySelector('.grid')
     const resultDisplay = document.querySelector('#result')
     let cardsChosen = []
@@ -105,11 +105,14 @@ document.addEventListener('DOMContentLoaded', () => {
         //check console log and take .this out to see what happens.
         //set cardID to a data ID of #0-27
         let cardId = this.getAttribute('data-id')
-        console.log(cardId)
+        //
         cardsChosen.push(cardArray[cardId].img)
+        //
         cardsChosenId.push(cardId)
+        //
         this.setAttribute('src', cardArray[cardId].img)
-        if (cardsChosen.length === 2 && cardsChosenId[0] !== cardsChosenId[1]) {
+        //
+        if (cardsChosen.length === 2 ) {
             setTimeout(checkForMatch, 500)
             console.log(this)
         }
@@ -119,10 +122,11 @@ document.addEventListener('DOMContentLoaded', () => {
         let cards = document.querySelectorAll('img')
         const optionOneId = cardsChosenId[0]
         const optionTwoId = cardsChosenId[1]
-        if (cardsChosen[0] === cardsChosen[1]) {
+        if (cardsChosen[0] === cardsChosen[1] && cardsChosenId[0] !== cardsChosenId[1]) {
             cards[optionOneId].setAttribute('src', 'images/Black200px.jpg')
             cards[optionTwoId].setAttribute('src', 'images/Black200px.jpg')
             cardsWon.push(cardsChosen)
+            console.log(cardsWon)
         } else {
             cards[optionOneId].setAttribute('src', 'images/greenCard200px.jpg')
             cards[optionTwoId].setAttribute('src', 'images/greenCard200px.jpg')
@@ -137,5 +141,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     createBoard()
-    cardArray.sort(() => 0.5 - Math.random())
+    
 })
