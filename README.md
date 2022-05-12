@@ -46,16 +46,9 @@ RUBBERDUCK: My idea is to delete the matched cards from the array completely fro
 THINGS TRIED: 
 <<<<<<< HEAD
 1. THINGS TRIED: 
-   1. In flipCard function I took CheckForMatch out of SetTimeout method, putting it above timer and below, but that turned one card at a time over. 
-   2. Also took timer out completely and did the same thing, so the timer is necessary for two cards to flip at the same time. 
-   3. In the flipCard if-statement I changed cardsChosen Array to cardsChosenId. Also bugged out after first match made, allowing me to turn cards back over and images freezing erratic. 
-   4. I ADDED another an or-statement to also check that the cardsChosenID array has 2 card array nested in it. This helped by making it harder to flip the cards back over, keeping it set as a black.jpb, BUT when game is over I can flip the cards back and even still a little buggy during game play, leaving one image left. Better though.
-
-=======
   1. In flipCard function I took CheckForMatch out of SetTimeout method, putting it above timer and below, but that turned one card at a time over. 
   2. Also took timer out completely and did the same thing, so the timer is necessary for two cards to flip at the same time. 
-  3. In the flipCard if-statement I changed cardsChosen Array to cardsChosenId. Also bugged out after first match made, allowing me to turn cards back over and images freezing eratically. 
+  3. In the flipCard if-statement I changed cardsChosen Array to cardsChosenId. Also bugged out after first match made, allowing me to turn cards back over, plus images freeze erratically. 
   4. I ADDED another an or-statement to also check that the cardsChosenID array has 2 card array nested in it. This helped by not allowing cards to flip from black to greenCard when clicking matching pairs, BUT now the opposite occurs when I make a match, I can flip the cards back over to greenCard.jpg if the image path does NOT match. So I switched the logic but the bug persists.
-  5. I spotted an error I made. When replacing new jpgs from 300px to 200px I forgot to change the relative path from the 300px to the 200px. This has helped a bit. but problem 4 persists. However, it's not irratic with random freezes!s
->>>>>>> 2818806038d886787674a76fb0a0f3b0a446879a
-3. 
+  5. I spotted an error I made. When replacing new jpgs from 300px to 200px I forgot to change the relative path from the 300px to the 200px. This has helped a bit. but problem 4 persists. However, it's not erratic with random freezes!
+
