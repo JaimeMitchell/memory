@@ -48,7 +48,10 @@ THINGS TRIED:
 1. THINGS TRIED: 
   1. In flipCard function I took CheckForMatch out of SetTimeout method, putting it above timer and below, but that turned one card at a time over. 
   2. Also took timer out completely and did the same thing, so the timer is necessary for two cards to flip at the same time. 
-  3. In the flipCard if-statement I changed cardsChosen Array to cardsChosenId. Also bugged out after first match made, allowing me to turn cards back over, plus images freeze erratically. 
+  3. In the flipCard if-statement I changed cardsChosen Array to cardsChosenId. Also bugged out after first match made, allowing me to turn cards back over after match, plus all other images freeze to screen and do not turn over after flip.
   4. I ADDED another an or-statement to also check that the cardsChosenID array has 2 card array nested in it. This helped by not allowing cards to flip from black to greenCard when clicking matching pairs, BUT now the opposite occurs when I make a match, I can flip the cards back over to greenCard.jpg if the image path does NOT match. So I switched the logic but the bug persists.
   5. I spotted an error I made. When replacing new jpgs from 300px to 200px I forgot to change the relative path from the 300px to the 200px. This has helped a bit. but problem 4 persists. However, it's not erratic with random freezes!
-
+  6. WON'n'DONE doesn't show because now the CardsWon Array length is not equal to CardsArray length/2 since I can click the cards out of the win, unpairing the cards. Cards now freezing again. Had to remove the compound conditional chosenCard==2
+  7. Changed var card to let card on line 97.
+  8. Commented out changing value of cardChosen Arrays back to 0 on line 141 & 142. Broke code because the array doesn't reset itself, meaning the cards don't flip back over but remain as image.
+  9. adding a line to push cardsWon to cardChosenID array. This is an attempt to prevent the flip back from black.jpg to greenCard.jpg

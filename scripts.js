@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
         //Loop through card array
         for (let i = 0; i < cardArray.length; i++) {
             //Creat an image element named card of EACH object in array.
-            var card = document.createElement('img')
+           let card = document.createElement('img') // changed from var to let
             //Set EACH card to it's src attribute (Images Relative Path) AND to the green card (virtual back side)
             card.setAttribute('src', 'images/greenCard200px.jpg')
             // Set EACH card to a data idea #0-27 using the i iterator
@@ -111,33 +111,35 @@ document.addEventListener('DOMContentLoaded', () => {
         let cardId = this.getAttribute('data-id')
         //Push img card attribute to cardsChosen. This seems to be for both comparison and setTimeOut timer.
         cardsChosen.push(cardArray[cardId].img)
-        //Push the id attribute to cardsChosenId ARRAY
+        //Push the id attributed card to cardsChosenId ARRAY
         cardsChosenId.push(cardId)
         //Maybe this is where it's setting the card src and img, but could this be what's bugging it out? Can it be written better
         this.setAttribute('src', cardArray[cardId].img)
         // if cardsChosen Array has 2 cards in it, check it for 1000 milliseconds
-        if (cardsChosen.length === 2 && cardsChosenId.length=== 2 ) {
+        if (cardsChosen.length === 2) {
             setTimeout(checkForMatch, 600)
             console.log(this)
         }
     }
-    //check for matches
+    //CHECK FOR MATCHES within FLIPCARD if-statement."are there two cards to compare?"
     function checkForMatch() {
-        //set new variable to select all images created in the DOM. Note PLURAL let cards !== let card (above)
+        //New variable to select all images created in the DOM. Note PLURAL cards is not card variable (above)
         let cards = document.querySelectorAll('img')
-        //
+        //New variables to compare two flipped cards
         const optionOneId = cardsChosenId[0]
         const optionTwoId = cardsChosenId[1]
         if (cardsChosen[0] === cardsChosen[1] && cardsChosenId[0] !== cardsChosenId[1]) {
             cards[optionOneId].setAttribute('src', 'images/Black200px.jpg')
             cards[optionTwoId].setAttribute('src', 'images/Black200px.jpg')
             cardsWon.push(cardsChosen)
+            cardsWon.push(cardsChosenId)
             console.log(cardsWon)
         } else {
             cards[optionOneId].setAttribute('src', 'images/greenCard200px.jpg')
             cards[optionTwoId].setAttribute('src', 'images/greenCard200px.jpg')
 
         }
+        //resets array so cards flip back to greenBack.jpg or black.jpg
         cardsChosen = []
         cardsChosenId = []
         resultDisplay.textContent = cardsWon.length
