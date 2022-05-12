@@ -115,15 +115,17 @@ document.addEventListener('DOMContentLoaded', () => {
         cardsChosenId.push(cardId)
         //Maybe this is where it's setting the card src and img, but could this be what's bugging it out? Can it be written better
         this.setAttribute('src', cardArray[cardId].img)
-        // if cardsChosen has 2 cards in it check it for a second.
-        if (cardsChosen.length === 2 ) {
-            setTimeout(checkForMatch, 1000)
+        // if cardsChosen Array has 2 cards in it, check it for 1000 milliseconds
+        if (cardsChosen.length === 2 && cardsChosenId.length=== 2 ) {
+            setTimeout(checkForMatch, 600)
             console.log(this)
         }
     }
     //check for matches
     function checkForMatch() {
+        //set new variable to select all images created in the DOM. Note PLURAL let cards !== let card (above)
         let cards = document.querySelectorAll('img')
+        //
         const optionOneId = cardsChosenId[0]
         const optionTwoId = cardsChosenId[1]
         if (cardsChosen[0] === cardsChosen[1] && cardsChosenId[0] !== cardsChosenId[1]) {
