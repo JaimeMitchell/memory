@@ -7,7 +7,8 @@ body {
     flex-direction: column;
     justify-content: center;
     align-content: center;
-    background-color: black;
+    background-image:url('images/MemoryBackground-3.jpg');
+    background-size: cover;
 }
 
 /* board size */

@@ -1,5 +1,14 @@
+/* What I need to do:
+1. create the game board. 1 . for-loop for each card. 
+2.create the img element for each card, giving it name 'card'.
+3. set attribute to link it to the blank, set both it's name/local and an data-id name 1-end of array.
+4. add event listener have been clicked on and invoke a flip card function. 
+    flip the card*/
+
+    //still not sure what this does.
 document.addEventListener('DOMContentLoaded', () => {
-    //card options array with each card an object
+    
+    //card options array with each card an object, note the curly brackets
     const cardArray = [
         {
             name: 'beePassion',
@@ -74,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
             img: 'images/200px-7.jpg'
         }
     ]
-    //
+    //Randomly 
     cardArray.sort(() => 0.5 - Math.random())
     const grid = document.querySelector('.grid')
     const resultDisplay = document.querySelector('#result')
@@ -84,16 +93,12 @@ document.addEventListener('DOMContentLoaded', () => {
     let cardsChosenId = []
     //Array of matching pairs have same path but different id numbers, used to keep score, and end came
     let cardsWon = []
-    //create the game board. 1 . for-loop for each card. 
-    // 2.create the img element for each card, giving it name 'card'.
-    // 3. set attribute to link it to the blank, set both it's name/local and an data-id name 1-end of array.
-    // 4. add event listener have been clicked on and invoke a flip card function. 
-    //flip the card
+    
     function createBoard() {
         //Loop through card array
         for (let i = 0; i < cardArray.length; i++) {
             //Creat an image element named card of EACH object in array.
-           let card = document.createElement('img') // changed from var to let
+            let card = document.createElement('img') // changed from var to let
             //Set EACH card to it's src attribute (Images Relative Path) AND to the green card (virtual back side). Why are they set together and the ID is set separately?
             card.setAttribute('src', 'images/greenCard200px.jpg')
             // Set EACH card to a data idea #0-27 using the i iterator
@@ -104,26 +109,24 @@ document.addEventListener('DOMContentLoaded', () => {
             card.addEventListener('click', flipCard)
         }
     }
-     //CHECK FOR MATCHES within FLIPCARD if-statement."are there two cards to compare?"
-     function checkForMatch() {
+    //CHECK FOR MATCHES within FLIPCARD if-statement."are there two cards to compare?"
+    function checkForMatch() {
         //New variable to select all images created in the DOM. Note PLURAL cards is not card variable (above)
         let cards = document.querySelectorAll('img')
         //New variables to set cards compared to green or black. Not to compare but only used to change their attributes below.
         const optionOneId = cardsChosenId[0]
         const optionTwoId = cardsChosenId[1]
-        
-         if (cardsChosen[0] === cardsChosen[1] && cardsChosenId[0] !== cardsChosenId[1]) 
-         { if ( )  
-            // TRY THIS if{ cardsChosen[0]or cardsChosen[1] is already black PASS}
-            // sets cards option 1 id and option 2 id to black to make appear they are removed
-            cards[optionOneId].setAttribute('src', 'images/Black200px.jpg')
-            cards[optionTwoId].setAttribute('src', 'images/Black200px.jpg')
+
+        if (cardsChosen[0] === cardsChosen[1] && cardsChosenId[0] !== cardsChosenId[1]) {   cards[optionOneId].style.visibility = 'hidden'
+            cards[optionTwoId].style.visibility = 'hidden'
+            // cards[optionOneId].setAttribute('src', 'images/Black200px.jpg')
+            // cards[optionTwoId].setAttribute('src', 'images/Black200px.jpg')
             //pushes matching cardsChosen[0] and cardsChosen[1] to cardsWon Array in order to tally score
-            cardsWon.push(cardsChosen) 
+            cardsWon.push(cardsChosen)
             //TRY THIS //change cardsWon to a sum instead of array, remove child from parent so can't be turned back over, plus black background won't be required and can change backgrounds at will.
-        
+
         }
-        else{
+        else {
             cards[optionOneId].setAttribute('src', 'images/greenCard200px.jpg')
             cards[optionTwoId].setAttribute('src', 'images/greenCard200px.jpg')
 
@@ -142,23 +145,28 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     function flipCard() {
-        //set cardID to get this card's data ID attribute when card flipped
+
+        //1.Attach the value 'this ID attribute on the button clicked' to cardId
+
         let cardId = this.getAttribute('data-id')
-        //Push img card attribute to cardsChosen. This seems to be for both comparison and setTimeOut timer.
+
+        //2.Push the cardArray[dynamic index] and it's image to CardsChosen Array
+
         cardsChosen.push(cardArray[cardId].img)
-        //Push the id attributed card to cardsChosenId ARRAY
+
+        //3. Push the id attributed card to cardsChosenId ARRAY
         cardsChosenId.push(cardId)
-        //Maybe this is where it's setting the card src and img, but could this be what's bugging it out? Can it be written better
+
+        //4. THIS IS THE FLIP. It's saying "Set THIS card you clicked to the image('src')
         this.setAttribute('src', cardArray[cardId].img)
-        // if cardsChosen Array has 2 cards in it, check it for 1000 milliseconds
+
+        //5. If cardsChosen Array has 2 cards in it, check it for 1000 milliseconds
         if (cardsChosen.length === 2) {
             setTimeout(checkForMatch, 500)
             console.log(this)
         }
-        // if{cardChosen lives in cardsWon array, leave black or removed}
     }
-   
-
+    //Randomly create the board
     createBoard()
-    
+
 })
