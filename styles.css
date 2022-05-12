@@ -7,7 +7,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-content: center;
-    background-image:url('images/MemoryBackground-3.jpg');
+    background-image:url('images/MemoryBackground-9.jpg');
     background-size: cover;
 }
 
@@ -27,7 +27,8 @@ img {
     max-width: 200px;
     max-height: 200px;
     border-radius: 5em;
-  
+  border: green ;
+  border-width:  4px;
     
 }
 /* Score */

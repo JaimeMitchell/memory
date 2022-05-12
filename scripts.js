@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
             //Creat an image element named card of EACH object in array.
             let card = document.createElement('img') // changed from var to let
             //Set EACH card to it's src attribute (Images Relative Path) AND to the green card (virtual back side). Why are they set together and the ID is set separately?
-            card.setAttribute('src', 'images/greenCard200px.jpg')
+            card.setAttribute('src', 'images/MemoryBackground-11.jpg')
             // Set EACH card to a data idea #0-27 using the i iterator
             card.setAttribute('data-id', i)
             //append the card to the grid. Putting after creating card did nothing
@@ -127,8 +127,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         }
         else {
-            cards[optionOneId].setAttribute('src', 'images/greenCard200px.jpg')
-            cards[optionTwoId].setAttribute('src', 'images/greenCard200px.jpg')
+            cards[optionOneId].setAttribute('src', 'images/MemoryBackground-11.jpg')
+            cards[optionTwoId].setAttribute('src', 'images/MemoryBackground-13.jpg')
 
         }
         // if(cardsChosen[0]=== cardsChosen[0] || cardsChosen[1]===cardsChosen[1] ||cardsChosenId[0]===cardsChosenId[0] || cardsChosenId[1]===cardsChosenId[1]) {
