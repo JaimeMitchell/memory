@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
         for (let i = 0; i < cardArray.length; i++) {
             //Creat an image element named card of EACH object in array.
            let card = document.createElement('img') // changed from var to let
-            //Set EACH card to it's src attribute (Images Relative Path) AND to the green card (virtual back side)
+            //Set EACH card to it's src attribute (Images Relative Path) AND to the green card (virtual back side). Why are they set together and the ID is set separately?
             card.setAttribute('src', 'images/greenCard200px.jpg')
             // Set EACH card to a data idea #0-27 using the i iterator
             card.setAttribute('data-id', i)
@@ -106,8 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     function flipCard() {
-        //check console log and take .this out to see what happens.
-        //set cardID to a data ID of #0-27.
+        //set cardID to get this card's data ID attribute when card flipped
         let cardId = this.getAttribute('data-id')
         //Push img card attribute to cardsChosen. This seems to be for both comparison and setTimeOut timer.
         cardsChosen.push(cardArray[cardId].img)
@@ -120,20 +119,21 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(checkForMatch, 600)
             console.log(this)
         }
+        // if{cardChosen lives in cardsWon array, leave black or removed}
     }
     //CHECK FOR MATCHES within FLIPCARD if-statement."are there two cards to compare?"
     function checkForMatch() {
         //New variable to select all images created in the DOM. Note PLURAL cards is not card variable (above)
         let cards = document.querySelectorAll('img')
-        //New variables to compare two flipped cards
+        //New variables to set cards compared to green or black. Not to compare but only used to change their attributes below.
         const optionOneId = cardsChosenId[0]
         const optionTwoId = cardsChosenId[1]
-        if (cardsChosen[0] === cardsChosen[1] && cardsChosenId[0] !== cardsChosenId[1]) {
+        //cardsChosen 0 and 1 are used to compare images being same and id's being different
+        if (cardsChosen[0] === cardsChosen[1] && cardsChosenId[0] !== cardsChosenId[1]) {  
+            // TRY THIS if{ cardsChose[0]or cardsChosen[1] is already black PASS}
             cards[optionOneId].setAttribute('src', 'images/Black200px.jpg')
             cards[optionTwoId].setAttribute('src', 'images/Black200px.jpg')
             cardsWon.push(cardsChosen)
-            cardsWon.push(cardsChosenId)
-            console.log(cardsWon)
         } else {
             cards[optionOneId].setAttribute('src', 'images/greenCard200px.jpg')
             cards[optionTwoId].setAttribute('src', 'images/greenCard200px.jpg')
@@ -142,7 +142,9 @@ document.addEventListener('DOMContentLoaded', () => {
         //resets array so cards flip back to greenBack.jpg or black.jpg
         cardsChosen = []
         cardsChosenId = []
+        //adding one each time to the score board for each matched pair which equals one nested array within cardsWon array. TRY THIS: If I end up removing cardsWon array, make sure to return it to a sum so this works. Perhaps the return value of pop()
         resultDisplay.textContent = cardsWon.length
+        //cardsWon length is half of CardArray length because 2 cards are make one nested array so need to divide the cardArray.
         if (cardsWon.length === cardArray.length / 2) {
             resultDisplay.textContent = "WON'n'DONE"
         }

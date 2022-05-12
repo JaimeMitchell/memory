@@ -55,3 +55,5 @@ THINGS TRIED:
   7. Changed var card to let card on line 97.
   8. Commented out changing value of cardChosen Arrays back to 0 on line 141 & 142. Broke code because the array doesn't reset itself, meaning the cards don't flip back over but remain as image.
   9. adding a line to push cardsWon to cardChosenID array. This is an attempt to prevent the flip back from black.jpg to greenCard.jpg
+  
+  How:  // In flip function-if{cardChosen lives in cardsWon array, leave black or removed}
