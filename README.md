@@ -31,3 +31,16 @@ Since I am following a tutorial and sources on the web. I want to make sure not 
 
 ### WireFrame
 ![alt text](https://github.com/JaimeMitchell/memory/blob/1bf8b6aa368c58c737c94458298bea4a25f5e392/images/brainstorming.jpg "My WireLess Frame")
+
+##
+Bugs that have come up:
+
+1. CHALLENGE: Imgs can be clicked on AFTER they are matched, so they are back in the play deck. If they are double clicked they can enter the wonCards Array WITHOUT their match, leaving one card left at the end of the came. Worse is when this happens to multiple cards leaving unmatched pairs.
+SOLUTION: In the checkForMatch function, add an or-conditional making the if-statement a compound conditional checking for BOTH image source and data-id number of elements clicked. If the element has the same src path BUT different IDs then it's a match.
+
+2. CHALLENGE: Above solution now freezes the matched cards to their images, meaning they aren't set to the black.jpg to blend into the background, AND every card after the first match freezes when clicked and doesn't turn back over. 
+RUBBERDUCK: My idea is to delete the matched cards from the array completely from game play and not associate them with image src "black.jpg". This also allows me to change the background at will without having to match 28 images to it.
+THINGS TRIED: 1.In flipCard function I took CheckForMatch out of SetTimeout method, putting it above timer and below, but that turned one card at a time over. 2. Also took timer out completely and did the same thing, so the timer is necessary for two cards to flip at the same time. 3. In the flipCard if-statement I changed cardsChosen Array to cardsChosenId. Also bugged out after first match made, allowing me to turn cards back over and images freezing eratically. 4. I ADDED another an or-statement to also check that the cardsChosenID array has 2 card array nested in it. This helped by making it harder to flip the cards back over, keeping it set as a black.jpb, BUT when game is over I can flip the cards back and even still a little buggy during game play, leaving one image left. Better though.
+5.
+
+3. 
