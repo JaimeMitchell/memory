@@ -55,5 +55,7 @@ THINGS TRIED:
   7. Changed var card to let card on line 97.
   8. Commented out changing value of cardChosen Arrays back to 0 on line 141 & 142. Broke code because the array doesn't reset itself, meaning the cards don't flip back over but remain as image.
   9. adding a line to push cardsWon to cardChosenID array. This is an attempt to prevent the flip back from black.jpg to greenCard.jpg
-  
+  10. I tried to break out of the cards match function so the card would not change. but break didn't work. Maybe just using the 'return' key work will? Or the placement will change the logic. I had it in the middle and then on top, but that isn't right // if(cardsChosen[0]=== cardsChosen[0] || cardsChosen[1]===cardsChosen[1] ||cardsChosenId[0]===cardsChosenId[0] || cardsChosenId[1]===cardsChosenId[1]) {
+        //     break }
+11.None of that worked without staying similar or breaking it further. So I know now that the two matching cards HAVE TO BE REMOVED completely until the game is reset. 
   How:  // In flip function-if{cardChosen lives in cardsWon array, leave black or removed}

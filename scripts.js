@@ -1,4 +1,3 @@
-//setting up the DOM? Not sure why they do it like this??
 document.addEventListener('DOMContentLoaded', () => {
     //card options array with each card an object
     const cardArray = [
@@ -83,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let cardsChosen = []
     // Array of cards chosen with an id number 0-27, this is used to make sure the compared cards do not have matching IDs
     let cardsChosenId = []
-    //Array of matching pairs have to have same path but different id numbers
+    //Array of matching pairs have same path but different id numbers, used to keep score, and end came
     let cardsWon = []
     //create the game board. 1 . for-loop for each card. 
     // 2.create the img element for each card, giving it name 'card'.
@@ -105,6 +104,43 @@ document.addEventListener('DOMContentLoaded', () => {
             card.addEventListener('click', flipCard)
         }
     }
+     //CHECK FOR MATCHES within FLIPCARD if-statement."are there two cards to compare?"
+     function checkForMatch() {
+        //New variable to select all images created in the DOM. Note PLURAL cards is not card variable (above)
+        let cards = document.querySelectorAll('img')
+        //New variables to set cards compared to green or black. Not to compare but only used to change their attributes below.
+        const optionOneId = cardsChosenId[0]
+        const optionTwoId = cardsChosenId[1]
+        
+         if (cardsChosen[0] === cardsChosen[1] && cardsChosenId[0] !== cardsChosenId[1]) 
+         { if ( )  
+            // TRY THIS if{ cardsChosen[0]or cardsChosen[1] is already black PASS}
+            // sets cards option 1 id and option 2 id to black to make appear they are removed
+            cards[optionOneId].setAttribute('src', 'images/Black200px.jpg')
+            cards[optionTwoId].setAttribute('src', 'images/Black200px.jpg')
+            //pushes matching cardsChosen[0] and cardsChosen[1] to cardsWon Array in order to tally score
+            cardsWon.push(cardsChosen) 
+            //TRY THIS //change cardsWon to a sum instead of array, remove child from parent so can't be turned back over, plus black background won't be required and can change backgrounds at will.
+        
+        }
+        else{
+            cards[optionOneId].setAttribute('src', 'images/greenCard200px.jpg')
+            cards[optionTwoId].setAttribute('src', 'images/greenCard200px.jpg')
+
+        }
+        // if(cardsChosen[0]=== cardsChosen[0] || cardsChosen[1]===cardsChosen[1] ||cardsChosenId[0]===cardsChosenId[0] || cardsChosenId[1]===cardsChosenId[1]) {
+        //     return }
+
+        //resets array so cards flip back to greenBack.jpg or black.jpg
+        cardsChosen = []
+        cardsChosenId = []
+        //adding one each time to the score board for each matched pair which equals one nested array within cardsWon array. TRY THIS: If I end up removing cardsWon array, make sure to return it to a sum so this works. Perhaps the return value of pop()
+        resultDisplay.textContent = cardsWon.length
+        //cardsWon length is half of CardArray length because 2 cards are make one nested array so need to divide the cardArray.
+        if (cardsWon.length === cardArray.length / 2) {
+            resultDisplay.textContent = "WON'n'DONE"
+        }
+    }
     function flipCard() {
         //set cardID to get this card's data ID attribute when card flipped
         let cardId = this.getAttribute('data-id')
@@ -116,39 +152,12 @@ document.addEventListener('DOMContentLoaded', () => {
         this.setAttribute('src', cardArray[cardId].img)
         // if cardsChosen Array has 2 cards in it, check it for 1000 milliseconds
         if (cardsChosen.length === 2) {
-            setTimeout(checkForMatch, 600)
+            setTimeout(checkForMatch, 500)
             console.log(this)
         }
         // if{cardChosen lives in cardsWon array, leave black or removed}
     }
-    //CHECK FOR MATCHES within FLIPCARD if-statement."are there two cards to compare?"
-    function checkForMatch() {
-        //New variable to select all images created in the DOM. Note PLURAL cards is not card variable (above)
-        let cards = document.querySelectorAll('img')
-        //New variables to set cards compared to green or black. Not to compare but only used to change their attributes below.
-        const optionOneId = cardsChosenId[0]
-        const optionTwoId = cardsChosenId[1]
-        //cardsChosen 0 and 1 are used to compare images being same and id's being different
-        if (cardsChosen[0] === cardsChosen[1] && cardsChosenId[0] !== cardsChosenId[1]) {  
-            // TRY THIS if{ cardsChose[0]or cardsChosen[1] is already black PASS}
-            cards[optionOneId].setAttribute('src', 'images/Black200px.jpg')
-            cards[optionTwoId].setAttribute('src', 'images/Black200px.jpg')
-            cardsWon.push(cardsChosen)
-        } else {
-            cards[optionOneId].setAttribute('src', 'images/greenCard200px.jpg')
-            cards[optionTwoId].setAttribute('src', 'images/greenCard200px.jpg')
-
-        }
-        //resets array so cards flip back to greenBack.jpg or black.jpg
-        cardsChosen = []
-        cardsChosenId = []
-        //adding one each time to the score board for each matched pair which equals one nested array within cardsWon array. TRY THIS: If I end up removing cardsWon array, make sure to return it to a sum so this works. Perhaps the return value of pop()
-        resultDisplay.textContent = cardsWon.length
-        //cardsWon length is half of CardArray length because 2 cards are make one nested array so need to divide the cardArray.
-        if (cardsWon.length === cardArray.length / 2) {
-            resultDisplay.textContent = "WON'n'DONE"
-        }
-    }
+   
 
     createBoard()
     
