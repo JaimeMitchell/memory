@@ -1,8 +1,12 @@
-# memoryGame
+# Memory
 
-## Description
-
+## Link to Game
 Here is the link to my memory game: https://jaimemitchell.github.io/memory/
+
+## Instructions
+Flip cards over and try to match images. When you make a match the cards are removed from the board. When all cards are gone YOU WIN!
+
+## Process
 
 Since I am following a tutorial and sources on the web. I want to make sure not to totally rob myself of thinking through the problem as if I didn't have any resources and had to invent from scratch. Here are the functions I think I'll need before following tutorials:
 
@@ -32,8 +36,7 @@ Since I am following a tutorial and sources on the web. I want to make sure not 
 ### WireFrame
 ![alt text](https://github.com/JaimeMitchell/memory/blob/1bf8b6aa368c58c737c94458298bea4a25f5e392/images/brainstorming.jpg "My WireLess Frame")
 
-##
-Bugs that have come up:
+## Bugs that have come up:
 
 1. CHALLENGE: Imgs can be clicked on AFTER they are matched, so they are back in the play deck. If they are double clicked they can enter the wonCards Array WITHOUT their match, leaving one card left at the end of the came. Worse is when this happens to multiple cards leaving unmatched pairs.
 SOLUTION: In the checkForMatch function, add an or-conditional making the if-statement a compound conditional checking for BOTH image source and data-id number of elements clicked. If the element has the same src path BUT different IDs then it's a match.
