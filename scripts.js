@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
             //Creat an image element named card of EACH object in array.
             var card = document.createElement('img')
             //Set EACH card to it's src attribute (Images Relative Path) AND to the green card (virtual back side)
-            card.setAttribute('src', 'images/greenCard.jpg')
+            card.setAttribute('src', 'images/greenCard200px.jpg')
             // Set EACH card to a data idea #0-27 using the i iterator
             card.setAttribute('data-id', i)
             //append the card to the grid. Putting after creating card did nothing
