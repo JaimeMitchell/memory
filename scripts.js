@@ -75,11 +75,15 @@ document.addEventListener('DOMContentLoaded', () => {
             img: 'images/200px-7.jpg'
         }
     ]
+    //
     cardArray.sort(() => 0.5 - Math.random())
     const grid = document.querySelector('.grid')
     const resultDisplay = document.querySelector('#result')
+    // cards chosen
     let cardsChosen = []
+    // Array of cards chosen with an id number 0-27, this is used to make sure the compared cards do not have matching IDs
     let cardsChosenId = []
+    //Array of matching pairs have to have same path but different id numbers
     let cardsWon = []
     //create the game board. 1 . for-loop for each card. 
     // 2.create the img element for each card, giving it name 'card'.
@@ -103,17 +107,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     function flipCard() {
         //check console log and take .this out to see what happens.
-        //set cardID to a data ID of #0-27
+        //set cardID to a data ID of #0-27.
         let cardId = this.getAttribute('data-id')
-        //
+        //Push img card attribute to cardsChosen. This seems to be for both comparison and setTimeOut timer.
         cardsChosen.push(cardArray[cardId].img)
-        //
+        //Push the id attribute to cardsChosenId ARRAY
         cardsChosenId.push(cardId)
-        //
+        //Maybe this is where it's setting the card src and img, but could this be what's bugging it out? Can it be written better
         this.setAttribute('src', cardArray[cardId].img)
-        //
+        // if cardsChosen has 2 cards in it check it for a second.
         if (cardsChosen.length === 2 ) {
-            setTimeout(checkForMatch, 500)
+            setTimeout(checkForMatch, 1000)
             console.log(this)
         }
     }
