@@ -27,18 +27,19 @@ img {
     max-width: 200px;
     max-height: 200px;
     border-radius: 5em;
-  border: green ;
+  border: rgb(91, 215, 14) ;
   border-width:  4px;
     
 }
 /* Score */
 h3 {
+    font-family:fantasy;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     align-content: center;
     text-align:center;
-    color: rgb(14, 226, 180)
+    color: rgb(168, 238, 26)
 }
 .result{display: flex;
     flex-wrap: wrap;
