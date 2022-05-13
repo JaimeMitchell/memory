@@ -127,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         }
         else {
-            cards[optionOneId].setAttribute('src', 'images/MemoryBackground-11.jpg')
+            cards[optionOneId].setAttribute('src', 'images/MemoryBackground-12.jpg')
             cards[optionTwoId].setAttribute('src', 'images/MemoryBackground-13.jpg')
 
         }
