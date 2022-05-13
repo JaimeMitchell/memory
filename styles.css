@@ -7,12 +7,15 @@ body {
     flex-direction: column;
     justify-content: center;
     align-content: center;
-    background-image:url('images/MemoryBackground-9.jpg');
+    background-image: url('images/MemoryBackground-9.jpg');
     background-size: cover;
+    background-repeat: no-repeat;
+    background-color: black;
 }
 
 /* board size */
 .grid {
+
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -20,30 +23,58 @@ body {
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
-    height: 600px;
-    width: 800px;
+    max-height: 600px;
+    max-width: 800px;
+    perspective: 8000px;
 }
+
 img {
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
     max-width: 200px;
     max-height: 200px;
     border-radius: 5em;
-  border: rgb(91, 215, 14) ;
-  border-width:  4px;
-    
+    transform-style: preserve-3d;
+    transform: rotateY(180deg);
+    transition: all 1s ease;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 25px;
 }
+
+/* .card {
+    position: absolute;
+    transform-style: preserve-3d;
+    transform: rotateY(180deg);
+    transition: all 2c cubic-bezier(0.175, 0.885, 0.32, 1.275);
+} */
+
+.toggle {
+    transform: rotateY(180deg)
+}
+
+
+
 /* Score */
 h3 {
-    font-family:fantasy;
+    font-family: fantasy;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     align-content: center;
-    text-align:center;
-    color: rgb(168, 238, 26)
+    text-align: center;
+    color: rgb(168, 238, 26);
 }
-.result{display: flex;
+
+.result {
+
+    display: transparent;
+    display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     align-content: center;
     text-align: center;
-    color: rgb(14, 226, 180)}
+    color:rgb(91, 215, 14);
+}

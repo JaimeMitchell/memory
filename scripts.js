@@ -8,7 +8,7 @@
 //still not sure what this does.
 document.addEventListener('DOMContentLoaded', () => {
 
-    //card options array with each card an object, note the curly brackets
+    //1. Card array. Each ARRAY ITEM is an OBJECT, with name and image src. Note curly brackets
     const cardArray = [
         {
             name: 'beePassion',
@@ -83,29 +83,34 @@ document.addEventListener('DOMContentLoaded', () => {
             img: 'images/200px-7.jpg'
         }
     ]
-    //1. Random card layout on each replay. 
+    
+    //2. Random card layout on each replay. //can't seem to creat variable or function for this.
     cardArray.sort(() => 0.5 - Math.random())
+    // cardArray.Math.round(Math.random())
+    //3. select the grid div which will be the array item's Mama Bear.
     const grid = document.querySelector('.grid')
+
+    //4. HTML span nested in h3. It's the Scoreboard and where I'll place a button. 
     const resultDisplay = document.querySelector('#result')
 
     //2. cards chosen array will have 2 cards pushed to it if their images match
     let cardsChosen = []
 
-    //3. Originally just for changing attribute of matching cards to hidden, but I also used it to make sure the compared cards do not have matching IDs
+    //3. Originally just for changing attribute of matching cards to hidden, but I also used it to make sure the compared cards do not have matching IDs.
     let cardsChosenId = []
 
     //4. Array of matching pairs have same path but different id numbers, used to keep score, and end game
     let cardsWon = []
-
+    createBoard()
     function createBoard() {
         //1. Loop through card array
         for (let i = 0; i < cardArray.length; i++) {
 
             //2. Creat an image element named card of EACH object in array.
             let card = document.createElement('img')// changed from var to let
-
+            // card.classList.add("card");
             //3. Set EACH card to it's src attribute (Images Relative Path) AND to the green card (virtual back side). Why are they set together and the ID is set separately?
-            card.setAttribute('src', 'images/MemoryBackground-11.jpg')
+            card.setAttribute('src', 'images/leaf.jpg')
 
             //4. Set EACH card to a data idea #0-27 using the i iterator
             card.setAttribute('data-id', i)
@@ -117,20 +122,21 @@ document.addEventListener('DOMContentLoaded', () => {
             card.addEventListener('click', flipCard)
         }
     }
+  
     function flipCard() {
 
-        //1.Attach the value 'this ID attribute on the button clicked' to cardId
+        //1.Attach the value 'get this object's ID attribute when its clicked' to cardId
         let cardId = this.getAttribute('data-id')
 
         //2.Push the cardArray[dynamic index] and it's image to CardsChosen Array
         cardsChosen.push(cardArray[cardId].img)
 
-        //3. Push the id attributed card to cardsChosenId ARRAY
+        //3. Push the object's id attribute to cardsChosenId ARRAY
         cardsChosenId.push(cardId)
 
         //4. THIS IS THE FLIP. It's saying "Set THIS card you clicked to the image('src')
         this.setAttribute('src', cardArray[cardId].img)
-
+        // element.classList.toggle("card")
         //5. If cardsChosen Array has 2 cards in it, check it for 1000 milliseconds
         if (cardsChosen.length === 2) {
             setTimeout(checkForMatch, 500)
@@ -138,44 +144,59 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+// function player(){}
+// function computer(){}
+
     function checkForMatch() {
-         
+
         //1. New variable to select all images created in the DOM. Note PLURAL cards is not card variable (above)
         let cards = document.querySelectorAll('img')
 
-        // 2. New variables to set cards. Not to compare but to hide cards when matched.
+        // 2. New variables to set cards. Originally used to hide cards when they match, BUT also needed to compare cards to make sure cards have different IDs.
         const optionOneId = cardsChosenId[0]
         const optionTwoId = cardsChosenId[1]
 
-        // 3. If flipped cards image src are equal AND if their IDs are different they match
-        if (cardsChosen[0] === cardsChosen[1] && cardsChosenId[0] !== cardsChosenId[1]) {
-
+        // 3. If flipped cards image src are equal AND if their IDs are different they match!
+        if (cardsChosen[0] === cardsChosen[1] && optionOneId !== optionTwoId) {
+            // 4a. Card pair won and are hidden from board and out of play.
             cards[optionOneId].style.visibility = 'hidden'
             cards[optionTwoId].style.visibility = 'hidden'
+            //4b. BELOW code is from Original Tutorial. I wanted the cards to be hidden fix game breaking bugs and so I can change background seamlessly.
             // cards[optionOneId].setAttribute('src', 'images/Black200px.jpg')
             // cards[optionTwoId].setAttribute('src', 'images/Black200px.jpg')
-            //pushes matching cardsChosen[0] and cardsChosen[1] to cardsWon Array in order to tally score
-            cardsWon.push(cardsChosen)
-            //TRY THIS //change cardsWon to a sum instead of array, remove child from parent so can't be turned back over, plus black background won't be required and can change backgrounds at will.
 
+            //5. pushes matching cardsChosen[0] and cardsChosen[1] to cardsWon Array in order to keep tally of cards for both score and to end the game.
+            cardsWon.push(cardsChosen)
+
+            //6. else the image flips back over to it's back side. Considered making these two different from the original back to create a more challenging memory came. The varied background makes memorizing harder.    
         }
         else {
-            cards[optionOneId].setAttribute('src', 'images/MemoryBackground-11.jpg')
-            cards[optionTwoId].setAttribute('src', 'images/MemoryBackground-11.jpg')
-
+            cards[optionOneId].setAttribute('src', 'images/leaf.jpg')
+            cards[optionTwoId].setAttribute('src', 'images/leaf.jpg')
         }
-        // if(cardsChosen[0]=== cardsChosen[0] || cardsChosen[1]===cardsChosen[1] ||cardsChosenId[0]===cardsChosenId[0] || cardsChosenId[1]===cardsChosenId[1]) {
-        //     return }
+        // if(optionOneId=== optionTwoId || cardsChosenID[0]===cardsChosenID[1] {
+        //     return } Should prevent double clicking one card and sending it to CardsWon array.
 
-        //resets array so cards flip back to greenBack.jpg or black.jpg
+        //7. resets the arrays from the two cards back to empty for the next try.
         cardsChosen = []
         cardsChosenId = []
+
+        //8. 
         resultDisplay.textContent = cardsWon.length
-        //cardsWon length is half of CardArray length because 2 cards make one nested array so need to divide the cardArray.
+
+
+        //9. CardsWon length is half of CardArray length because 2 cards make one nested array so need to divide the cardArray.
         if (cardsWon.length === cardArray.length / 2) {
-            resultDisplay.textContent = "WON'n'DONE"
+            resultDisplay.textContent = cardsWon.length
+            resultDisplay.textContent = "Set them free to play again"
+            // const getButton = document.getElementById(result)
+            
+            // getButton.addEventListener('click',reloadPage)
+            // function reloadPage(){
+            //     console.log('here')
+            //     location.reload();
+               }
         }
-    }
-    createBoard()
+    
 
 })
