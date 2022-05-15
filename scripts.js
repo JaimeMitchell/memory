@@ -119,7 +119,7 @@ function createBoard() {
         //4. Set EACH card to a data idea #0-27 using the i iterator
         card.setAttribute('data-id', i)
 
-        card.setAttribute('class','card')
+        card.setAttribute('class', 'card')
 
         //5. Append the card to the grid. Putting after creating card did nothing
         grid.appendChild(card)
@@ -199,50 +199,49 @@ function checkForMatch() {
         resultDisplay.textContent = "Set them free to play again"
         // const getButton = document.getElementById(result)
     }
-function generateComputerChoice(){
-let choice=this.setAttribute('src', cardArray[cardId].img)
-let computerChoice = choice.Math.floor(Math.random()*cardArray.length)
- //1. New variable to select all images created in the DOM. Note PLURAL cards is not card variable (above)
- let cards = document.querySelectorAll('img')
-
- // 2. New variables to set cards. Originally used to hide cards when they match, BUT also needed to compare cards to make sure cards have different IDs.
- const optionOneId = cardsChosenId[0]
- const optionTwoId = cardsChosenId[1]
-
- // 3. If flipped cards image src are equal AND if their IDs are different they match!
- if (cardsChosen[0] === cardsChosen[1] && optionOneId !== optionTwoId) {
-     // 4a. Card pair won and are hidden from board and out of play.
-     cards[optionOneId].style.visibility = 'hidden'
-     cards[optionTwoId].style.visibility = 'hidden'
-     //4b. BELOW code is from Original Tutorial. I wanted the cards to be hidden fix game breaking bugs and so I can change background seamlessly.
-     // cards[optionOneId].setAttribute('src', 'images/Black200px.jpg')
-     // cards[optionTwoId].setAttribute('src', 'images/Black200px.jpg')
-
-     //5. pushes matching cardsChosen[0] and cardsChosen[1] to cardsWon Array in order to keep tally of cards for both score and to end the game.
-     cardsWon.push(cardsChosen)
-
-     //6. else the image flips back over to it's back side. Considered making these two different from the original back to create a more challenging memory came. The varied background makes memorizing harder.    
- }
- else {
-     cards[optionOneId].setAttribute('src', 'images/leaf.jpg')
-     cards[optionTwoId].setAttribute('src', 'images/leaf.jpg')
- }
- // if(optionOneId=== optionTwoId || cardsChosenID[0]===cardsChosenID[1] {
- // return } Should prevent double clicking one card and sending it to CardsWon array.
-
- //7. resets the arrays from the two cards back to empty for the next try.
- cardsChosen = []
- cardsChosenId = []
-
- //8. the text content which is the number of matches won is calculated from the amount of pairs, which are the nested arrays pushed into the cardsWon array.
- resultDisplay.textContent = cardsWon.length
-
- //9. CardsWon length is half of CardArray length because 2 cards make one nested array so need to divide the cardArray.
- if (cardsWon.length === cardArray.length / 2) {
-     resultDisplay.textContent = cardsWon.length
-     resultDisplay.textContent = "Set them free to play again"
-     // const getButton = document.getElementById(result)
- }
 }
-generateComputerChoice()
-}
+// function generateComputerChoice(){
+//     let choice=this.setAttribute('src', cardArray[cardId].img)
+//     let computerChoice = choice.Math.floor(Math.random()*cardArray.length)
+//      //1. New variable to select all images created in the DOM. Note PLURAL cards is not card variable (above)
+//      let cards = document.querySelectorAll('img')
+    
+//      // 2. New variables to set cards. Originally used to hide cards when they match, BUT also needed to compare cards to make sure cards have different IDs.
+//      const optionOneId = cardsChosenId[0]
+//      const optionTwoId = cardsChosenId[1]
+    
+//      // 3. If flipped cards image src are equal AND if their IDs are different they match!
+//      if (cardsChosen[0] === cardsChosen[1] && optionOneId !== optionTwoId) {
+//          // 4a. Card pair won and are hidden from board and out of play.
+//          cards[optionOneId].style.visibility = 'hidden'
+//          cards[optionTwoId].style.visibility = 'hidden'
+//          //4b. BELOW code is from Original Tutorial. I wanted the cards to be hidden fix game breaking bugs and so I can change background seamlessly.
+//          // cards[optionOneId].setAttribute('src', 'images/Black200px.jpg')
+//          // cards[optionTwoId].setAttribute('src', 'images/Black200px.jpg')
+    
+//          //5. pushes matching cardsChosen[0] and cardsChosen[1] to cardsWon Array in order to keep tally of cards for both score and to end the game.
+//          cardsWon.push(cardsChosen)
+    
+//          //6. else the image flips back over to it's back side. Considered making these two different from the original back to create a more challenging memory came. The varied background makes memorizing harder.    
+//      }
+//      else {
+//          cards[optionOneId].setAttribute('src', 'images/leaf.jpg')
+//          cards[optionTwoId].setAttribute('src', 'images/leaf.jpg')
+//      }
+//      // if(optionOneId=== optionTwoId || cardsChosenID[0]===cardsChosenID[1] {
+//      // return } Should prevent double clicking one card and sending it to CardsWon array.
+    
+//      //7. resets the arrays from the two cards back to empty for the next try.
+//      cardsChosen = []
+//      cardsChosenId = []
+    
+//      //8. the text content which is the number of matches won is calculated from the amount of pairs, which are the nested arrays pushed into the cardsWon array.
+//      resultDisplay.textContent = cardsWon.length
+    
+//      //9. CardsWon length is half of CardArray length because 2 cards make one nested array so need to divide the cardArray.
+//      if (cardsWon.length === cardArray.length / 2) {
+//          resultDisplay.textContent = cardsWon.length
+//          resultDisplay.textContent = "Set them free to play again"
+//          // const getButton = document.getElementById(result)
+//      }
+//     }
