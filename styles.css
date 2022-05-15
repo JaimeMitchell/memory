@@ -11,11 +11,11 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-color: black;
+
 }
 
 /* board size */
 .grid {
-
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -25,30 +25,47 @@ body {
     margin-right: auto;
     max-height: 600px;
     max-width: 800px;
-    perspective: 8000px;
+    perspective: 1000px;
 }
 
 img {
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-content: center;
-    justify-content: center;
-    margin-left: auto;
-    margin-right: auto;
     max-width: 200px;
     max-height: 200px;
     border-radius: 5em;
-    transform-style: preserve-3d;
-    transform: rotateY(180deg);
-    transition: all 1s ease;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 25px;
-}
-
-/* .card {
-    position: absolute;
+    border: rgb(91, 215, 14);
+    border-width: 4px;
+    /* position: relative;
     transform-style: preserve-3d;
     transform: rotateY(180deg);
     transition: all 2c cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition-delay: 0.2s;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px; */
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    animation:  5s ;
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: rotateY(0deg);
+    }
+    100% {
+      transform: rotateY(180deg);
+    }
+  }
+  
+
+/* .card {
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateY(0deg);
+    transition: all 2c cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px;
+    transition-delay: 0.2s;
+    cursor: pointer;
 } */
 
 .toggle {
@@ -69,8 +86,23 @@ h3 {
 }
 
 .result {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+    text-align: center;
+    color:rgb(91, 215, 14);
+}
 
-    display: transparent;
+.userChoice {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+    text-align: center;
+    color:rgb(91, 215, 14);
+}
+.computerChoice {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
