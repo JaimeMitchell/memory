@@ -3,6 +3,8 @@
 
 body {
     display: flex;
+    height: 100vh;
+    width: 100vw;
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
@@ -34,12 +36,11 @@ img {
     border-radius: 5em;
     border: rgb(91, 215, 14);
     border-width: 4px;
-    /* position: relative;
+    position: relative;
     transform-style: preserve-3d;
     transform: rotateY(180deg);
     transition: all 2c cubic-bezier(0.175, 0.885, 0.32, 1.275);
     transition-delay: 0.2s;
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px; */
 }
 
 .card {
@@ -47,10 +48,11 @@ img {
     animation-duration: 0.7s;
     animation-iteration-count: infinite;
     animation-play-state: paused;
+    
   }
   
-  .card:hover {
-    animation-play-state: running;
+  .card:active {
+    animation-play-state:running;
   }
   
   @keyframes rotate {
@@ -58,10 +60,10 @@ img {
       transform: rotate(0);
     }
     100% {
-      transform: rotate(360deg);
+      transform: rotateY(180deg);
     }
   }  
-  
+
 /* .card {
     position: relative;
     transform-style: preserve-3d;
@@ -96,6 +98,7 @@ h3 {
     align-content: center;
     text-align: center;
     color:rgb(91, 215, 14);
+}
 
 /* }
 
