@@ -118,8 +118,9 @@ function createBoard() {
 
         //4. Set EACH card to a data idea #0-27 using the i iterator
         card.setAttribute('data-id', i)
-
+        document.createAttribute('class','card')
         card.setAttribute('class', 'card')
+        console.log(card)
 
         //5. Append the card to the grid. Putting after creating card did nothing
         grid.appendChild(card)
@@ -148,7 +149,8 @@ function flipCard() {
     // element.classList.toggle("card")
     //5. If cardsChosen Array has 2 cards in it, check it for 1000 milliseconds
     if (cardsChosen.length === 2) {
-        setTimeout(checkForMatch, 500)
+        //increased from 500ms to 600 in order to prevent the "card freeze" bug while providing enough time to see cards. 500 was good before adding the animation, but the animation flips the cards back too quickly, and too much of an increase produces the a frozen image and breaks the game flow.
+        setTimeout(checkForMatch, 600)
         console.log(this)
     }
 }
