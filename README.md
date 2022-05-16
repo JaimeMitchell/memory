@@ -9,6 +9,7 @@ Here is the link to my memory game: https://jaimemitchell.github.io/memory/
 Flip cards over and try to match images. When you make a match the cards are removed from the board. When all cards are gone YOU WIN!
 
 ## Resource: 
+Ania Kubow JS Game tut:
 https://www.youtube.com/watch?v=lhNdUVh3qCc
 
 ## PsuedoCode
