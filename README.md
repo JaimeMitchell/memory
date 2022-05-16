@@ -12,6 +12,9 @@ Flip cards over and try to match images. When you make a match the cards are rem
 Ania Kubow JS Game tut:
 https://www.youtube.com/watch?v=lhNdUVh3qCc
 
+## Technologies used:
+HTML, CSS, JavaScript/DOM
+
 ## PsuedoCode
 
 Since I am following a tutorial and sources on the web. I want to make sure not to totally rob myself of thinking through the problem as if I didn't have any resources and had to invent from scratch. Here are the functions I think I'll need before following tutorials:
