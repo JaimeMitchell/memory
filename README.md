@@ -94,6 +94,6 @@ THINGS TRIED:
 2. To give the cards a leaf-shaped mask.
 3. Cards flip easier with one simple click
 4. Have the computer flip two cards and have it play against me more dynamically than just dealing the cards.
-
-
+5. To have a timer set to reload page after an alert 'you lose', as a simple solution to the computer playing against user.
+6. Sound. Have the evening chorus of crickets and clicking noises that sound like different bugs.
 
