@@ -73,7 +73,9 @@ THINGS TRIED:
    1. Trying to use the same methods in other tutorials, but those have extra divs with classes, or at least two different classes they toggle. That seemed straight forward enough and so did the on/off logic, however the results were not as predicted and didn't work well. 
     2. I tried a hover/rotate keyframe animation which spins the card when my mouse hovers over, it did worked but it was contingent on the hover and could not get 'click' to work on it. Also, it's just not the animation I wanted. I was able to use it to rotate on the y-axis and get the flip effect BUT it only flipped the leaf jpg and I could not get the toggle to image logic working.
     3. After deleting and losing the code for the hover, I finally found it. This was a lesson in bookmarking if I delete and commenting out if I don't bookmark. I am having success by changing .card:hover to 
-    .card:active {animation-play-state:running;} along with other properties added to the .card class I made. The only problem that remains is that the flip stops the second I un-click, instead of a full 180 turn on one click, so I need to read documentation to adjust the setting. I think it has something to do with the play state of "running".
+    .card:active {animation-play-state:running;} along with other properties added to the .card class I made. The only problem that remains is that the flip stops the second I un-click, instead of a full 180 turn on one click, so I need to read documentation to adjust the setting.
+
+SOLUTION: After futzing for a few more hours I am leaving as it is. I played with timing. I'm going to call it good enough for now. 
 
 5. CHALLENGE: Computer takes a turn
 THINGS TRIED:
