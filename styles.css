@@ -1,14 +1,14 @@
 /* The game boards properties */
 
-@media all and (min-width: 768px){
+/* @media all and (min-width: 768px){ */
 
 body {
-    
+/*     
     display: -webkit-flex;
     -webkit-flex: 1 auto;
     flex: 1 auto;
     -webkit-order: 1;
-    order: 1;
+    order: 1; */
     width: 100vw;
     flex-wrap: wrap;
     flex-direction: column;
@@ -22,10 +22,10 @@ body {
 
 /* board size */
 .grid {
-    -webkit-flex: 5 0px;
+    /* -webkit-flex: 5 0px;
     flex: 5 0px;
     -webkit-order: 2;
-    order: 2;
+    order: 2; */
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -83,7 +83,7 @@ h3 {
     align-content: center;
     text-align: center;
     color:rgb(91, 215, 14);
-}}
+}
 
 /* 
 img {

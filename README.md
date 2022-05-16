@@ -80,3 +80,13 @@ SOLUTION: After futzing for a few more hours I am leaving as it is. I played wit
 5. CHALLENGE: Computer takes a turn
 THINGS TRIED:
    1. This was a bonus. I tried working in similar logic from rock,scissors,paper, but didn't have much success getting it to work from the DOM. 
+
+
+   Things I would still like to do:
+1. Make it load and fit better on phone. It works but not how I'd like
+2. To give the cards a leaf-shaped mask.
+3. Cards flip easier with one simple click
+4. Have the computer flip two cards and have it play against me more dynamically than just dealing the cards.
+
+
+

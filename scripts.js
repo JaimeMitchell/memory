@@ -6,7 +6,7 @@
     flip the card*/
 
 //still not sure what this does.
-
+document.addEventListener("DOMContentLoaded", () => {
 //1. Card array. Each ARRAY ITEM is an OBJECT, with name and image src. Note curly brackets
 const cardArray = [
     {
@@ -247,3 +247,4 @@ function checkForMatch() {
 //          // const getButton = document.getElementById(result)
 //      }
 //     }
+})
