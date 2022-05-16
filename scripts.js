@@ -182,8 +182,8 @@ function checkForMatch() {
         //6. else the image flips back over to it's back side. Considered making these two different from the original back to create a more challenging memory came. The varied background makes memorizing harder.    
     }
     else {
-        cards[optionOneId].setAttribute('src', 'images/leaf.jpg')
-        cards[optionTwoId].setAttribute('src', 'images/leaf.jpg')
+        cards[optionOneId].setAttribute('src', 'images/dew1.jpg')
+        cards[optionTwoId].setAttribute('src', 'images/dew2.jpg')
     }
     // if(optionOneId=== optionTwoId || cardsChosenID[0]===cardsChosenID[1] {
     // return } Should prevent double clicking one card and sending it to CardsWon array.
