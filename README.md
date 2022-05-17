@@ -50,7 +50,7 @@ Since I am following a tutorial and sources on the web. I want to make sure not 
 ## Bugs that have come up:
 
 1. CHALLENGE: Imgs can be clicked on AFTER they are matched, so they are back in the play deck. If they are double clicked they can enter the wonCards Array WITHOUT their match, leaving one card left at the end of the came. Worse is when this happens to multiple cards leaving unmatched pairs.
-   SOLUTION: In the checkForMatch function, add an or-conditional making the if-statement a compound conditional checking for BOTH image source and data-id number of elements clicked. If the element has the same src path BUT different IDs then it's a match.
+   SOLUTION: In the checkForMatch function, add an &&-conditional making the if-statement a compound conditional checking for BOTH image source and data-id number of elements clicked. If the element has the same src path BUT different IDs then it's a match.
 
 2. CHALLENGE: Above solution now freezes the matched cards to their images, meaning they aren't set to the black.jpg to blend into the background, AND every card after the first match freezes when clicked and doesn't turn back over.
    RUBBERDUCK: My idea is to delete the matched cards from the array completely from game play and not associate them with image src "black.jpg". This also allows me to change the background at will without having to match 28 images to it.
@@ -60,11 +60,11 @@ Since I am following a tutorial and sources on the web. I want to make sure not 
 3. In the flipCard if-statement I changed cardsChosen Array to cardsChosenId. Also bugged out after first match made, allowing me to turn cards back over after match, plus all other images freeze to screen and do not turn over after flip.
 4. I ADDED another an or-statement to also check that the cardsChosenID array has 2 card array nested in it. This helped by not allowing cards to flip from black to greenCard when clicking matching pairs, BUT now the opposite occurs when I make a match, I can flip the cards back over to greenCard.jpg if the image path does NOT match. So I switched the logic but the bug persists.
 5. I spotted an error I made. When replacing new jpgs from 300px to 200px I forgot to change the relative path from the 300px to the 200px. This has helped a bit. but problem 4 persists. However, it's not erratic with random freezes!
-6. "WON'n'DONE" doesn't show when all matches made, because now the CardsWon Array length is not equal to CardsArray length/2 since I can click the cards out of the win, unpairing the cards. Cards now freezing again. Had to remove the compound conditional chosenCard==2
+6. "WON'n'DONE" doesn't show when all matches made, because now the CardsWon Array length is not equal to CardsArray length/2 since I can click the cards out of the win, unpairing the cards. Cards now freezing again. Had to remove an unnessaery compound conditional chosenCard==2
 7. Changed var card to let card on line 97.
 8. Commented out changing value of cardChosen Arrays back to 0 on line 141 & 142. Broke code because the array doesn't reset itself, meaning the cards don't flip back over but remain as image.
 9. adding a line to push cardsWon to cardChosenID array. This is an attempt to prevent the flip back from black.jpg to greenCard.jpg
-10. I tried to break out of the cards match function so the card would not change. but break didn't work. Maybe just using the 'return' key work will? Or the placement will change the logic. I had it in the middle and then on top, but that isn't right // if(cardsChosen[0]=== cardsChosen[0] || cardsChosen[1]===cardsChosen[1] ||cardsChosenId[0]===cardsChosenId[0] || cardsChosenId[1]===cardsChosenId[1]) {
+10. I tried to break out of the cards match function so the card would not change. but 'break' didn't work. Maybe just using the 'return' key will? Or the placement will change the logic. I had it in the middle and then on top, but that isn't right // if(cardsChosen[0]=== cardsChosen[0] || cardsChosen[1]===cardsChosen[1] ||cardsChosenId[0]===cardsChosenId[0] || cardsChosenId[1]===cardsChosenId[1]) {
     // break }
     11.None of that worked without staying similar or breaking it further. So I know now that the two matching cards HAVE TO BE REMOVED completely until the game is reset.
 
