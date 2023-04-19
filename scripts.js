@@ -169,12 +169,10 @@ function checkForMatch() {
 
     // 3. If flipped cards image src are equal AND if their IDs are different they match!
     if (cardsChosen[0] === cardsChosen[1] && optionOneId !== optionTwoId) {
-        // 4a. Card pair won and are hidden from board and out of play.
+        // 4. Card pair won and are hidden from board and out of play.
         cards[optionOneId].style.visibility = 'hidden'
         cards[optionTwoId].style.visibility = 'hidden'
-        //4b. BELOW code is from Original Tutorial. I wanted the cards to be hidden fix game breaking bugs and so I can change background seamlessly.
-        // cards[optionOneId].setAttribute('src', 'images/Black200px.jpg')
-        // cards[optionTwoId].setAttribute('src', 'images/Black200px.jpg')
+       
 
         //5. pushes matching cardsChosen[0] and cardsChosen[1] to cardsWon Array in order to keep tally of cards for both score and to end the game.
         cardsWon.push(cardsChosen)
